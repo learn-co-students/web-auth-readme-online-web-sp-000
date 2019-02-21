@@ -36,6 +36,11 @@ gem 'faraday'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'dotenv-rails'
+
 end
 
 group :development do
@@ -46,3 +51,5 @@ group :development do
   gem 'spring'
 end
 
+
+gem "psych", "~> 3.1"
