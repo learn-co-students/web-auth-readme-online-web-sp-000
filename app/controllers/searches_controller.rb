@@ -34,7 +34,8 @@ class SearchesController < ApplicationController
       req.params['oauth_token'] = session[:token]
       req.params['v'] = '20160201'
     end
-    @friends = JSON.parse res.body['response']['friends']['items']
+    # binding.pry
+    @friends = JSON.parse(res.body)['response']['friends']['items']
   end
   
 end
