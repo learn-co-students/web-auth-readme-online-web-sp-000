@@ -11,7 +11,7 @@ We're going to expand on our Coffee Shop example to use OAuth with the Foursquar
 
 ### API User Authentication
 
-Until now, we've been authenticating to APIs at the *application* level using a Client ID/Secret pair with each request.
+Until now, we've been authenticating to APIs at the *application* level  using a Client ID/Secret pair with each request.
 
 As we learned, this level of application authentication is important in that it allows the API provider to ensure good behavior by any client application.
 
