@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+config.web_console.whitelisted_ips = '31.127.99.181'
 module ApisAndFaradayReading
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
