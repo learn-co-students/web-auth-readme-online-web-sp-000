@@ -1,5 +1,14 @@
 class SearchesController < ApplicationController
   def search
+    @resp = Faraday.get("https://api.foursquare.com/v2/users/self/friends") do |req|
+      req.params["oauth_token"] = session["token"]
+      req.params['v'] = '20160201'
+    end
+
+    body = JSON.parse(@reps.body)
+    @friends = body["friends"]["items"]
+
+    render :friends
   end
 
   def foursquare
