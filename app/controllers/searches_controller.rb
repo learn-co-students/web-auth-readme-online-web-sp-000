@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+  
   def search
   end
 
@@ -6,7 +7,7 @@ class SearchesController < ApplicationController
 
     client_id = ENV['FOURSQUARE_CLIENT_ID']
     client_secret = ENV['FOURSQUARE_SECRET']
-
+    binding.pry
     @resp = Faraday.get 'https://api.foursquare.com/v2/venues/search' do |req|
       req.params['client_id'] = client_id
       req.params['client_secret'] = client_secret
@@ -27,5 +28,15 @@ class SearchesController < ApplicationController
     rescue Faraday::TimeoutError
       @error = "There was a timeout. Please try again."
       render 'search'
+  end
+
+  def friends
+    resp = Faraday.get("https://api.foursquare.com/v2/users/self/friends") do |req|
+      req.params['oauth_token'] = session[:token]
+      # don't forget that pesky v param for versioning
+      req.params['v'] = '20160201'
+    end
+    @friends = JSON.parse(resp.body)["response"]["friends"]["items"]
+    render 'friends'
   end
 end
