@@ -1,1 +1,9 @@
-
+<% if @friends.size > 0 %>
+    <ul>
+        <% @friends.each do |f| %>
+            <li><%= "#{f[firstName]} #{f[lastName]}" %></li>
+        <% end %>
+    </ul>
+<% else %>
+    <p> You Have No Friends </p>
+<% end %>
